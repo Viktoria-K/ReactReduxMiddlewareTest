@@ -9,13 +9,14 @@ import {
 const INITIAL_STATE={
 	weatherData: {},
 	error: false,
-	loading: true
+	loading: true,
+	weather: true
 };
 
 export default (state = INITIAL_STATE, action)=>{
 	switch(action.type){
 		case CITY_REQUEST_SUCCESS:
-			return { ...state, weatherData: action.payload, loading: false};
+			return { ...state, weatherData: action.payload, loading: false, weather: true};
 		case CITY_REQUEST_FAIL:
 			return { ...state, error: true};
 		default:

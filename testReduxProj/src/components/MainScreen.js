@@ -4,13 +4,12 @@
 
 import React, {Component} from 'react';
 import {
-	View,
-	Text
+	View
 } from 'react-native';
 import {connect} from 'react-redux';
 import {Header} from './commons/Header';
 import {Spinner} from './commons/Spinner';
-import {cityWeatherRequest} from '../actions';
+import {cityWeatherRequest, getData} from '../actions';
 import styles from '../styles/styles'
 
 class MainScreen extends Component {
@@ -23,7 +22,7 @@ class MainScreen extends Component {
 	}
 
 	componentDidMount() {
-		this.props.cityWeatherRequest();
+		this.props.getData();
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -56,4 +55,4 @@ const mapStateToProps = ({main}) => {
 
 	return {weatherData, loading};
 };
-export default connect(mapStateToProps, {cityWeatherRequest})(MainScreen);
+export default connect(mapStateToProps, {cityWeatherRequest, getData})(MainScreen);
